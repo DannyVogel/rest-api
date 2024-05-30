@@ -14,12 +14,13 @@ export default defineEventHandler(async (event) => {
   });
   const authHeader = getRequestHeader(event, "Authorization");
   if (!authHeader) {
-    response.statusCode = 401;
-    response.message = "Unauthorized";
-    return response;
+    throw createError({
+      statusCode: 401,
+      statusMessage: "Just a slight nod for you",
+    });
   } else {
     response.statusCode = 200;
-    response.message = "Hello from Danny's REST API!";
+    response.message = "A splendid hello from Danny's REST API!";
     return response;
   }
 });
