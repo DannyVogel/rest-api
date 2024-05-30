@@ -10,39 +10,39 @@ interface ErrorCodeLibrary {
 const errorCodeLibrary: ErrorCodeLibrary = {
   200: {
     statusCode: 200,
-    message: "OK",
+    message: "All good",
   },
   201: {
     statusCode: 201,
-    message: "Created",
+    message: "Welcome to Creation",
   },
   202: {
     statusCode: 202,
-    message: "Accepted",
+    message: "Acceptable...",
   },
   204: {
     statusCode: 204,
-    message: "No Content",
+    message: "Got nothing for you",
   },
   400: {
     statusCode: 400,
-    message: "Bad Request",
+    message: "Because you're bad at requesting",
   },
   401: {
     statusCode: 401,
-    message: "Unauthorized",
+    message: "Uh uh, you don't belong here",
   },
   403: {
     statusCode: 403,
-    message: "Forbidden",
+    message: "Definitely not allowed here",
   },
   404: {
     statusCode: 404,
-    message: "Not Found",
+    message: "Nothing to see here",
   },
   500: {
     statusCode: 500,
-    message: "Internal Server Error",
+    message: "Everything is broken",
   },
 };
 
