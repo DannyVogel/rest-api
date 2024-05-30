@@ -19,7 +19,7 @@ export default defineEventHandler(async (event) => {
     return response;
   } else {
     response.statusCode = 200;
-    response.message = "Hello from Danny's rest api!";
+    response.message = "Hello from Danny's REST API!";
     return response;
   }
 });
