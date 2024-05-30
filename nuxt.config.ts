@@ -4,8 +4,5 @@ export default defineNuxtConfig({
   tailwindcss: {
     viewer: false,
   },
-  colorMode: {
-    preference: "light",
-  },
   modules: ["@nuxt/ui"],
 });
