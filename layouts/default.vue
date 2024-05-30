@@ -5,3 +5,9 @@
     <slot />
   </div>
 </template>
+
+<style>
+body {
+  background-color: #464242;
+}
+</style>
