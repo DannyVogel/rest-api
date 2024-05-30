@@ -1,4 +1,10 @@
+interface Response {
+  statusCode: number;
+  message: string;
+}
+
 export default defineEventHandler(async (event) => {
+  const response = {} as Response;
   setResponseHeaders(event, {
     "Access-Control-Allow-Methods": "GET,HEAD,PUT,PATCH,POST,DELETE",
     "Access-Control-Allow-Origin": "*",
@@ -6,5 +12,14 @@ export default defineEventHandler(async (event) => {
     "Access-Control-Allow-Headers": "*",
     "Access-Control-Expose-Headers": "*",
   });
-  return "Hello from Danny's rest api!";
+  const authHeader = getRequestHeader(event, "Authorization");
+  if (!authHeader) {
+    response.statusCode = 401;
+    response.message = "Unauthorized";
+    return response;
+  } else {
+    response.statusCode = 200;
+    response.message = "Hello from Danny's rest api!";
+    return response;
+  }
 });
