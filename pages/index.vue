@@ -37,6 +37,7 @@ const getStatus = async (code: number) => {
       },
     });
   } catch (error: Response | any) {
+    console.log("error", error);
     res.value = error;
   }
 };
