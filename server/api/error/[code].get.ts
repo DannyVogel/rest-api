@@ -1,11 +1,4 @@
-interface Response {
-  statusCode: number;
-  message: string;
-}
-
-interface ErrorCodeLibrary {
-  [key: number]: Response;
-}
+import type { Response, ErrorCodeLibrary } from "~/types/common.interfaces";
 
 const errorCodeLibrary: ErrorCodeLibrary = {
   200: {
