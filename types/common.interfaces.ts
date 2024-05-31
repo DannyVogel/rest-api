@@ -10,7 +10,7 @@ export interface ErrorCodeLibrary {
 
 export interface Post {
   userId: number;
-  id: number;
+  id: string;
   title: string;
   body: string;
 }
