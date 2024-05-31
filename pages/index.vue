@@ -113,7 +113,7 @@ const good = computed(() => {
         <li v-for="p in post" :key="p.id">
           <p>Title: {{ p.title }}</p>
           <p>Content: {{ p.body }}</p>
-          <p>Author: {{ p.userId }}</p>
+          <p>Author ID: {{ p.userId }}</p>
           <p>Post ID: {{ p.id }}</p>
         </li>
       </ul>
