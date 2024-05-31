@@ -17,6 +17,12 @@ export default defineEventHandler(async (event): Promise<Response> => {
     });
   } else {
     const posts = (await storage.getItem("posts.json")) as Post[];
+    if (!posts) {
+      throw createError({
+        statusCode: 404,
+        statusMessage: "No posts found",
+      });
+    }
     data = posts.find((post) => post.id === number);
     response.statusCode = 200;
     response.message = `Got the post #${number}`;
