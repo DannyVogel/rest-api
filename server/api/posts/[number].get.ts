@@ -18,7 +18,6 @@ export default defineEventHandler(async (event): Promise<Response> => {
   } else {
     const posts = (await storage.getItem("posts.json")) as Post[];
     data = posts.find((post) => post.id === number);
-    console.log(data);
     response.statusCode = 200;
     response.message = `Got the post #${number}`;
     response.payload = [data];
