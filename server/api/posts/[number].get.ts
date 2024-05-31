@@ -20,7 +20,7 @@ export default defineEventHandler(async (event): Promise<Response> => {
   } else {
     data = await $fetch(`https://jsonplaceholder.typicode.com/posts/${number}`);
     response.statusCode = 200;
-    response.message = "Got the post";
+    response.message = `Got the post #${number}`;
     response.payload = [data];
     return response;
   }
