@@ -13,7 +13,7 @@ const greet = async () => {
   message.value = undefined;
   res.value = undefined;
   try {
-    const res = await $fetch("/greet", {
+    const res = await $fetch("/api/greet", {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
@@ -30,7 +30,7 @@ const getStatus = async (code: number) => {
   message.value = undefined;
   res.value = undefined;
   try {
-    res.value = await $fetch(`/error/${code}`, {
+    res.value = await $fetch(`/api/error/${code}`, {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
@@ -75,7 +75,7 @@ const good = computed(() => {
       <p>{{ message }}</p>
     </div>
     <div v-if="res" :class="textColor">
-      <p>Status code: {{ res }}</p>
+      <p>Status code: {{ res.statusCode }}</p>
       <p>Message: {{ res.message }}</p>
     </div>
   </div>
