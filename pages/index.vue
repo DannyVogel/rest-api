@@ -28,7 +28,7 @@ const greet = async () => {
 const getStatus = async (code: number) => {
   reset();
   try {
-    res.value = await $fetch(`/api/error/${code}`, {
+    res.value = await $fetch(`/api/errors/${code}`, {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
