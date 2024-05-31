@@ -1,13 +1,11 @@
-import type { Response } from "~/types/common.interfaces";
+import type { Response, Post } from "~/types/common.interfaces";
 
 export default defineEventHandler(async (event): Promise<Response> => {
   const number = getRouterParam(event, "number");
   const response = {} as Response;
   let data;
 
-  if (!number) {
-    data = await $fetch(`https://jsonplaceholder.typicode.com/posts`);
-  } else if (isNaN(Number(number))) {
+  if (isNaN(Number(number))) {
     throw createError({
       statusCode: 400,
       statusMessage: "Bad request",
@@ -18,14 +16,12 @@ export default defineEventHandler(async (event): Promise<Response> => {
       statusMessage: "Post not found",
     });
   } else {
-    data = await $fetch(`https://jsonplaceholder.typicode.com/posts/${number}`);
+    const posts = (await storage.getItem("posts.json")) as Post[];
+    data = posts.find((post) => post.id === number);
+    console.log(data);
     response.statusCode = 200;
     response.message = `Got the post #${number}`;
     response.payload = [data];
     return response;
   }
-  throw createError({
-    statusCode: 400,
-    statusMessage: "Bad request",
-  });
 });
