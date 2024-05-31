@@ -6,7 +6,7 @@ const res = ref<Response>();
 const message = ref<string>();
 const codes = [200, 201, 202, 204, 400, 401, 403, 404, 500];
 const code = ref<number>(200);
-const post = ref<Post[]>();
+const posts = ref<Post[]>();
 const number = ref<number>();
 
 const greet = async () => {
@@ -50,20 +50,20 @@ const getPosts = async (number: number | null = null) => {
       },
     });
     if (res.statusCode === 200 && res.payload) {
-      post.value = res.payload;
+      posts.value = res.payload;
     } else {
-      post.value = [];
+      posts.value = [];
     }
   } catch (error: Response | any) {
     console.log("error", error);
-    post.value = error;
+    posts.value = error;
   }
 };
 
 const reset = () => {
   message.value = undefined;
   res.value = undefined;
-  post.value = undefined;
+  posts.value = undefined;
 };
 
 const textColor = computed(() => {
@@ -101,7 +101,7 @@ const good = computed(() => {
         number ? `Get Post #${number}` : "Get All Posts"
       }}</UButton>
     </div>
-    <UCard v-if="message || res || post">
+    <UCard v-if="message || res">
       <div v-if="message" class="text-blue-500">
         <p>{{ message }}</p>
       </div>
@@ -109,14 +109,17 @@ const good = computed(() => {
         <p>Status code: {{ res.statusCode }}</p>
         <p>Message: {{ res.message }}</p>
       </div>
-      <ul v-if="post">
-        <li v-for="p in post" :key="p.id">
-          <p>Title: {{ p.title }}</p>
-          <p>Content: {{ p.body }}</p>
-          <p>Author ID: {{ p.userId }}</p>
-          <p>Post ID: {{ p.id }}</p>
-        </li>
-      </ul>
+    </UCard>
+    <UCard v-if="posts" class="max-w-full overflow-x-scroll">
+      <h1 class="font-bold text-xl">Posts</h1>
+      <UTable :rows="posts">
+        <template #title-data="{ row }">
+          <p class="max-w-72 overflow-x-scroll">{{ row.title }}</p>
+        </template>
+        <template #body-data="{ row }">
+          <p class="max-w-72 overflow-x-scroll">{{ row.body }}</p>
+        </template>
+      </UTable>
     </UCard>
   </div>
 </template>
