@@ -9,8 +9,8 @@ export interface ErrorCodeLibrary {
 }
 
 export interface Post {
-  userId: number;
-  id: string;
+  author: string;
+  post_id: string;
   title: string;
   body: string;
 }
