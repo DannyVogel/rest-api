@@ -5,4 +5,8 @@ export default defineNuxtConfig({
     viewer: false,
   },
   modules: ["@nuxt/ui"],
+  runtimeConfig: {
+    supabaseUrl: "",
+    supabaseKey: "",
+  },
 });
