@@ -16,7 +16,15 @@ export default defineEventHandler(async (event): Promise<Response> => {
       statusMessage: "Post not found",
     });
   } else {
-    const posts = (await storage.getItem("posts.json")) as Post[];
+    let posts;
+    try {
+      posts = (await storage.getItem("posts.json")) as Post[];
+    } catch (error) {
+      throw createError({
+        statusCode: 500,
+        statusMessage: "Internal Server Error",
+      });
+    }
     if (!posts) {
       throw createError({
         statusCode: 404,

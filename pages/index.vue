@@ -56,7 +56,7 @@ const getPosts = async (number: number | null = null) => {
     }
   } catch (error: Response | any) {
     console.log("error", error);
-    posts.value = error;
+    posts.value = [];
   }
 };
 
