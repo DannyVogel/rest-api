@@ -1,6 +1,9 @@
 import { createStorage } from "unstorage";
-import fsDriver from "unstorage/drivers/fs";
+import memoryDriver from "unstorage/drivers/memory";
+import posts from "~/server/data/posts.json";
 
 export const storage = createStorage({
-  driver: fsDriver({ base: "./server/data" }),
+  driver: memoryDriver(),
 });
+
+storage.setItem("posts.json", posts);
