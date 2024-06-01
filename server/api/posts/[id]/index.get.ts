@@ -16,5 +16,5 @@ export default defineEventHandler(async (event): Promise<Response> => {
   const post = posts.find((post) => post.post_id === id);
   if (!post) return throwError(404);
 
-  return serverResponse(200, "Post found", [post]);
+  return serverResponse(200, "Post found", post);
 });

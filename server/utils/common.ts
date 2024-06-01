@@ -1,7 +1,7 @@
 export const serverResponse = (
   statusCode: number,
   message: string,
-  payload: any[] | null = null
+  payload: any[] | object | null = null
 ) => {
   return {
     statusCode,

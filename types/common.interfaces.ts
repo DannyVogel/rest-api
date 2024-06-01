@@ -1,7 +1,7 @@
 export interface Response {
   statusCode: number;
   message: string;
-  payload?: null | any[];
+  payload?: null | any[] | object;
 }
 
 export interface ErrorCodeLibrary {
