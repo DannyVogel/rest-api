@@ -4,9 +4,17 @@ export default defineNuxtConfig({
   tailwindcss: {
     viewer: false,
   },
-  modules: ["@nuxt/ui"],
+  modules: ["@nuxt/ui", "nuxt-shiki"],
   runtimeConfig: {
     supabaseUrl: "",
     supabaseKey: "",
+  },
+  shiki: {
+    bundledThemes: ["github-dark-default"],
+    defaultTheme: {
+      dark: "github-dark-default",
+      light: "github-dark-default",
+    },
+    defaultLang: "typescript",
   },
 });
