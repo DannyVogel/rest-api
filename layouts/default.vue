@@ -21,8 +21,8 @@ const links = [
   ],
   [
     {
-      label: "Examples",
-      icon: "i-heroicons-light-bulb",
+      label: "GitHub",
+      icon: "i-mdi-github",
     },
     {
       label: "Help",
@@ -33,10 +33,10 @@ const links = [
 </script>
 
 <template>
-  <div class="">
+  <div class="mt-4">
     <div class="flex items-center gap-4 max-w-screen-lg mx-auto">
       <NuxtLink to="/">
-        <h1 class="text-blue-500 text-2xl font-bold w-fit whitespace-nowrap">
+        <h1 class="text-blue-500 text-3xl font-bold w-fit whitespace-nowrap">
           TestREST <span class="text-xs">v{{ version }}</span>
         </h1>
       </NuxtLink>
