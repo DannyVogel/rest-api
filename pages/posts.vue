@@ -1,6 +1,5 @@
 <script lang="ts" setup>
 import type { Post } from "~/types/common.interfaces";
-// import { v4 as uuidv4 } from "uuid";
 
 const createPost = async () => {
   const post: Post = {
@@ -37,8 +36,7 @@ const updatePost = async () => {
 </script>
 
 <template>
-  <div>
-    <UButton @click="createPost">Create Post</UButton>
-    <UButton @click="updatePost">Update Post</UButton>
+  <div class="flex flex-col items-start gap-4">
+    <PostsGet />
   </div>
 </template>
