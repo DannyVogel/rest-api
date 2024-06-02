@@ -37,7 +37,7 @@ const links = [
     <div class="flex items-center gap-4 max-w-screen-lg mx-auto">
       <NuxtLink to="/">
         <h1 class="text-blue-500 text-3xl font-bold w-fit whitespace-nowrap">
-          TestREST <span class="text-xs">v{{ version }}</span>
+          RESTfulTest <span class="text-xs">v{{ version }}</span>
         </h1>
       </NuxtLink>
       <UHorizontalNavigation :links="links" class="" />
