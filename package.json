@@ -18,5 +18,8 @@
     "uuid": "^9.0.1",
     "vue": "^3.4.27",
     "vue-router": "^4.3.2"
+  },
+  "overrides": {
+    "whatwg-url": "13.0.0"
   }
 }
