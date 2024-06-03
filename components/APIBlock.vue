@@ -4,7 +4,11 @@ defineProps({
     type: String,
     required: true,
   },
-  code: {
+  codeInput: {
+    type: String,
+    required: true,
+  },
+  codeOutput: {
     type: String,
     required: true,
   },
@@ -14,6 +18,8 @@ defineProps({
 <template>
   <div class="w-full flex flex-col items-start gap-4">
     <h2 class="text-2xl font-bold">{{ title }}</h2>
-    <CodeBlock :code="code" />
+    <CodeBlock :code="codeInput" />
+    <p class="font-bold">Output:</p>
+    <CodeBlock :code="codeOutput" />
   </div>
 </template>
