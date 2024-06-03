@@ -11,7 +11,7 @@ const output = `{
         "author": "9_BxzulrII",
         "post_id": "1",
         "title": "audio aequitas turbo corona",
-        "body": "Vespillo dolorum defaeco stella tergeo comis. Saepe defessus tubineus voluptatem voro victoria ver thymbra tam absens. Amplitudo voluptates degero desolo dedecor annus subseco."
+        "body": "Vespillo dolorum defaeco stella..."
     }
 }`;
 const title = "Get Post By Id";
