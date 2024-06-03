@@ -38,6 +38,8 @@ const updatePost = async () => {
 <template>
   <div class="flex flex-col items-start gap-10">
     <PostsGet />
+    <UDivider />
     <PostsGetById />
+    <UDivider />
   </div>
 </template>
