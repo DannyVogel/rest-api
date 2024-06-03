@@ -11,6 +11,7 @@
     "postinstall": "nuxt prepare"
   },
   "dependencies": {
+    "@iconify-json/dashicons": "^1.1.9",
     "@iconify-json/heroicons": "^1.1.21",
     "@iconify-json/mdi": "^1.1.66",
     "@nuxt/ui": "^2.16.0",

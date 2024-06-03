@@ -19,6 +19,6 @@ export default defineNuxtConfig({
     defaultLang: "typescript",
   },
   ui: {
-    icons: ["mdi", "heroicons"],
+    icons: ["mdi", "heroicons", "dashicons"],
   },
 });
