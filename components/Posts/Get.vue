@@ -8,11 +8,11 @@ const code = `const res = await fetch(\`/api/posts/, {
   },
 });`;
 const output = `[
-  { id: 1, author: '...' title: '...', body: '...' },
-  { id: 2, author: '...' title: '...', body: '...' },
-  { id: 3, author: '...' title: '...', body: '...' },
+  { id: 1, author: '...', title: '...', body: '...' },
+  { id: 2, author: '...', title: '...', body: '...' },
+  { id: 3, author: '...', title: '...', body: '...' },
   /* ... */
-  { id: 100, author: '...' title: '...', body: '...' },
+  { id: 100, author: '...', title: '...', body: '...' },
 ];`;
 const title = "Get All Posts";
 const posts = ref<Post[]>([]);
