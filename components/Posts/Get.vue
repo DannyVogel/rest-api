@@ -23,6 +23,7 @@ const isLoading = ref<boolean>(false);
 
 const getPosts = async () => {
   isLoading.value = true;
+  posts.value = [];
   try {
     const res = await $fetch(`/api/posts/`, {
       method: "GET",
@@ -30,11 +31,10 @@ const getPosts = async () => {
     if (res.statusCode === 200 && res.payload) {
       posts.value = res.payload as Post[];
     } else {
-      posts.value = [];
+      throw new Error(res.message);
     }
   } catch (error: Response | any) {
-    console.log("error", error);
-    posts.value = [];
+    console.error("error", error);
   } finally {
     isLoading.value = false;
   }
