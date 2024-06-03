@@ -1,14 +1,19 @@
 <script lang="ts" setup>
 import type { Post } from "~/types/common.interfaces";
 
-const code = `
-const res = await fetch(\`/api/posts/, {
+const code = `const res = await fetch(\`/api/posts/, {
   method: "GET",
   headers: {
     "Content-Type": "application/json",
   },
-});
-`;
+});`;
+const output = `[
+  { id: 1, author: '...' title: '...', body: '...' },
+  { id: 2, author: '...' title: '...', body: '...' },
+  { id: 3, author: '...' title: '...', body: '...' },
+  /* ... */
+  { id: 100, author: '...' title: '...', body: '...' },
+];`;
 const title = "Get All Posts";
 const posts = ref<Post[]>([]);
 const number = ref<number>();
@@ -31,7 +36,7 @@ const getPosts = async () => {
 </script>
 
 <template>
-  <APIBlock :title="title" :code="code" />
+  <APIBlock :title="title" :code-input="code" :code-output="output" />
 
   <UButton @click="getPosts()">Get All Posts </UButton>
   <UCard v-if="posts" class="w-full overflow-x-scroll">
