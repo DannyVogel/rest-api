@@ -9,11 +9,11 @@ export default defineEventHandler(async (event) => {
   if (!authHeader) {
     throw createError({
       statusCode: 401,
-      statusMessage: "Just a slight nod for you",
+      statusMessage: "Just a simple hi for you",
     });
   } else {
     response.statusCode = 200;
-    response.message = "A splendid hello from Danny's REST API!";
+    response.message = "Welcome to RESTful Test!";
     return response;
   }
 });
