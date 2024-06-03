@@ -9,3 +9,6 @@ export const serverResponse = (
     payload,
   };
 };
+
+export const waitSeconds = async (seconds: number) =>
+  new Promise((resolve) => setTimeout(resolve, seconds * 1000));
