@@ -1,6 +1,6 @@
 import type { Response, Post } from "~/types/common.interfaces";
 
-export default defineEventHandler(async (event): Promise<Response> => {
+export default defineEventHandler(async (event) => {
   const id = getRouterParam(event, "id");
   if (isNaN(Number(id))) return throwError(400);
 
@@ -14,7 +14,7 @@ export default defineEventHandler(async (event): Promise<Response> => {
   if (!posts) return throwError(404);
 
   const post = posts.find((post) => post.post_id === id);
-  if (!post) return throwError(404);
-
+  if (!post) return throwError(404, `No post found with id: ${id}`);
+  await waitSeconds(1);
   return serverResponse(200, "Post found", post);
 });

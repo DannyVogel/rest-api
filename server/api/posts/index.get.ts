@@ -20,5 +20,6 @@ export default defineEventHandler(async (event): Promise<Response> => {
   response.statusCode = 200;
   response.message = "Got all posts";
   response.payload = data;
+  await waitSeconds(1);
   return response;
 });
