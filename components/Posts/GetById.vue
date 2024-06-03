@@ -1,36 +1,34 @@
 <script lang="ts" setup>
 import type { Post } from "~/types/common.interfaces";
 
-const code = `const res = await fetch(\`/api/posts/, {
+const code = `
+const res = await fetch(\`/api/posts/{id}, {
   method: "GET",
   headers: {
     "Content-Type": "application/json",
   },
-});`;
-const output = `[
-  { id: 1, author: '...', title: '...', body: '...' },
-  { id: 2, author: '...', title: '...', body: '...' },
-  { id: 3, author: '...', title: '...', body: '...' },
-  /* ... */
-  { id: 100, author: '...', title: '...', body: '...' },
-];`;
-const title = "Get All Posts";
-const posts = ref<Post[]>([]);
-const number = ref<number>();
+});
+`;
+const output = `{ 
+  id: 1, 
+  author: '...', 
+  title: '...', 
+  body: '...' 
+},`;
+const title = "Get Post By Id";
+const post = ref<Post>();
+const id = ref<number>(1);
 
-const getPosts = async () => {
+const getPosts = async (id: number) => {
   try {
-    const res = await $fetch(`/api/posts/`, {
+    const res = await $fetch(`/api/posts/${id}`, {
       method: "GET",
     });
     if (res.statusCode === 200 && res.payload) {
-      posts.value = res.payload as Post[];
-    } else {
-      posts.value = [];
+      post.value = res.payload as Post;
     }
   } catch (error: Response | any) {
     console.log("error", error);
-    posts.value = [];
   }
 };
 </script>
@@ -38,10 +36,13 @@ const getPosts = async () => {
 <template>
   <div class="w-full flex flex-col items-start gap-4">
     <APIBlock :title="title" :code-input="code" :code-output="output" />
-    <UButton @click="getPosts()">Get All Posts </UButton>
-    <UCard v-if="posts" class="w-full overflow-x-scroll">
+    <div class="flex gap-4">
+      <UInput v-model="id" type="number" color="gray" max="100" min="1" />
+      <UButton @click="getPosts(id)">{{ `Get Post #${id}` }}</UButton>
+    </div>
+    <UCard v-if="post" class="w-full overflow-x-scroll">
       <h1 class="font-bold text-xl">Posts</h1>
-      <UTable :rows="posts" class="overflow-y-scroll max-h-64 max-w-full">
+      <UTable :rows="[post]" class="overflow-y-scroll max-h-64 max-w-full">
         <template #title-data="{ row }">
           <p class="max-w-72">{{ row.title }}</p>
         </template>

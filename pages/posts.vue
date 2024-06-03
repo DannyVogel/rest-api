@@ -36,7 +36,8 @@ const updatePost = async () => {
 </script>
 
 <template>
-  <div class="flex flex-col items-start gap-4">
+  <div class="flex flex-col items-start gap-10">
     <PostsGet />
+    <PostsGetById />
   </div>
 </template>
