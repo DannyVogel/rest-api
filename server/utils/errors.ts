@@ -1,7 +1,9 @@
 import { ErrorCodeLibrary } from "~/types/common.interfaces";
 
-export const throwError = (errorCode: number) => {
-  throw createError(errorCodeLibrary[errorCode]);
+export const throwError = (errorCode: number, message: string = "") => {
+  const error = { ...errorCodeLibrary[errorCode] };
+  if (message) error.message = message;
+  throw createError(error);
 };
 
 export const errorCodeLibrary: ErrorCodeLibrary = {
