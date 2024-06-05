@@ -6,6 +6,7 @@ const props = defineProps({
 });
 
 const handleError = () => clearError({ redirect: "/" });
+console.error("error page", props.error);
 </script>
 
 <template>
