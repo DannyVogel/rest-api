@@ -1,6 +1,6 @@
 <script lang="ts" setup>
 const res = ref<any>(null);
-const codes = [200, 201, 202, 204, 400, 401, 403, 404, 500];
+const codes = [200, 201, 202, 204, 400, 401, 403, 404, 409, 429, 500, 503];
 const code = ref<number>(200);
 const good = computed(() => {
   if (code.value >= 200 && code.value < 300) {

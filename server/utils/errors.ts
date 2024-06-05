@@ -39,8 +39,20 @@ export const errorCodeLibrary: ErrorCodeLibrary = {
     statusCode: 404,
     message: "Nothing to see here",
   },
+  409: {
+    statusCode: 409,
+    message: "Conflict",
+  },
+  429: {
+    statusCode: 429,
+    message: "Too many requests",
+  },
   500: {
     statusCode: 500,
     message: "Everything is broken",
+  },
+  503: {
+    statusCode: 503,
+    message: "Service Unavailable",
   },
 };
