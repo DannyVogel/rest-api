@@ -19,7 +19,7 @@
 
 ::-webkit-scrollbar-thumb {
   border-radius: 20px;
-  background: linear-gradient(30deg, #172554, #172554);
+  background: #34488a;
   box-shadow: inset 0 0 6px #172554;
   cursor: pointer;
 }
