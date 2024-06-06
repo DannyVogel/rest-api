@@ -41,5 +41,7 @@ const updatePost = async () => {
     <UDivider />
     <PostsGetById />
     <UDivider />
+    <PostsCreate />
+    <UDivider />
   </div>
 </template>
