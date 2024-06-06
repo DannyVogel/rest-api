@@ -20,25 +20,29 @@ const copyToClipboard = () => {
 </script>
 
 <template>
-  <UCard
-    class="relative w-full border border-primary bg-[#0d1117] dark:bg-[#0d1117] overflow-scroll"
-  >
-    <div v-html="highlightedJS" />
-    <UTooltip
-      text="Copy to clipboard"
-      class="absolute top-2 right-2"
-      @click="copyToClipboard"
+  <div class="w-full relative">
+    <UCard
+      class="w-full border border-primary bg-[#0d1117] dark:bg-[#0d1117] overflow-scroll"
     >
-      <UButton
-        :icon="
-          copied ? 'i-heroicons-check-badge' : 'i-heroicons-clipboard-document'
-        "
-        size="xs"
-        :color="copied ? 'green' : 'blue'"
-        square
-        variant="ghost"
-        class="transition-all duration-300 ease-in-out"
-      />
-    </UTooltip>
-  </UCard>
+      <div v-html="highlightedJS" />
+      <UTooltip
+        text="Copy to clipboard"
+        class="absolute top-1 right-2"
+        @click="copyToClipboard"
+      >
+        <UButton
+          :icon="
+            copied
+              ? 'i-heroicons-check-badge'
+              : 'i-heroicons-clipboard-document'
+          "
+          size="xs"
+          :color="copied ? 'green' : 'blue'"
+          square
+          variant="ghost"
+          class="transition-all duration-300 ease-in-out"
+        />
+      </UTooltip>
+    </UCard>
+  </div>
 </template>
