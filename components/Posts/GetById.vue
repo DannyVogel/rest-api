@@ -57,7 +57,7 @@ const getPosts = async (id: number) => {
           Clear data
         </p>
       </div>
-      <UTable :rows="post" class="overflow-y-scroll max-h-64 max-w-full">
+      <UTable :rows="post" class="max-h-64 max-w-full">
         <template #title-data="{ row }">
           <p class="max-w-72">{{ row.title }}</p>
         </template>
@@ -81,8 +81,8 @@ const getPosts = async (id: number) => {
                 >{{ `Get Post #${id}` }}</UButton
               >
             </div>
-            <div class="text-red-500 h-6">
-              {{ errorMessage ? errorMessage : "" }}
+            <div v-if="errorMessage" class="text-red-500">
+              Error: {{ errorMessage }}
             </div>
           </div>
         </template>
