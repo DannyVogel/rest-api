@@ -23,4 +23,8 @@
   box-shadow: inset 0 0 6px #172554;
   cursor: pointer;
 }
+
+::-webkit-scrollbar-corner {
+  background: rgba(0, 0, 0, 0);
+}
 </style>
