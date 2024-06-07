@@ -19,5 +19,5 @@ export default defineEventHandler(async (event) => {
 
   post = { ...post, ...body };
 
-  return serverResponse(200, "Post updated", [post]);
+  return serverResponse(200, "Post updated successfully", [post]);
 });

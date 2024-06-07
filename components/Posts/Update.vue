@@ -1,15 +1,13 @@
 <script lang="ts" setup>
 import type { Post } from "~/types/common.interfaces";
 
-const code = `fetch("https://restfultest.netlify.app/api/posts", {
-    method: "POST",
+const code = `fetch("https://restfultest.netlify.app/api/posts/1", {
+    method: "PUT",
     headers: {
       "Content-Type": "application/json",
     },
     body: JSON.stringify({
-      author: 'Post Posterson', 
-      title: 'This is the title', 
-      body: 'This is the body' 
+      title: 'This is the new title', 
     }),
   })
     .then((response) => response.json())
@@ -17,32 +15,31 @@ const code = `fetch("https://restfultest.netlify.app/api/posts", {
 
 const output = `{
     "statusCode": 200,
-    "message": "Post created",
+    "message": "Post updated successfully",
     "payload": [
       { 
-        author: 'Post Posterson', 
-        title: 'This is the title', 
-        body: 'This is the body' 
-        post_id: "101", 
+        author: '9_BxzulrII', 
+        title: 'This is the new title', 
+        body: 'Vespillo dolorum defaeco stella tergeo ...' 
+        post_id: "1", 
       },
     ]
 };`;
 
-const title = "Create Post";
+const title = "Update Post";
 const posts = ref<Post[]>([]);
+const id = ref<number>(1);
 const isLoading = ref<boolean>(false);
 
-const createPost = async () => {
+const createPost = async (id: number) => {
   isLoading.value = true;
   posts.value = [];
   try {
     const post = {
-      author: "Post Posterson",
-      title: "This is the title",
-      body: "This is the body",
+      title: "This is the new title",
     };
-    const res = await $fetch(`/api/posts`, {
-      method: "POST",
+    const res = await $fetch(`/api/posts/${id}`, {
+      method: "PUT",
       body: post,
     });
     if (res.statusCode === 200 && res.payload) {
@@ -62,7 +59,7 @@ const createPost = async () => {
   <div class="w-full flex flex-col items-start gap-4">
     <APIBlock :title="title" :code-input="code" :code-output="output" />
     <Warn
-      message="The new post will not actually be saved but the response will pretend it did."
+      message="The updated post will not actually be saved but the response will pretend it did."
     />
     <p class="font-bold">Live Data Example:</p>
     <UCard class="w-full overflow-x-scroll">
@@ -89,8 +86,8 @@ const createPost = async () => {
               size="xl"
               color="green"
               :loading="isLoading"
-              @click="createPost"
-              >Create Post
+              @click="createPost(id)"
+              >Update Post
             </UButton>
           </div>
         </template>
