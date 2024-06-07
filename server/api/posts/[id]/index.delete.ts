@@ -16,5 +16,6 @@ export default defineEventHandler(async (event) => {
   let post = posts.find((post) => post.post_id == id);
   if (!post) return throwError(404);
 
+  await waitSeconds(1);
   return serverResponse(200, "Post deleted successfully", null);
 });

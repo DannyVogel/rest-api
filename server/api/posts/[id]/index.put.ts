@@ -18,6 +18,6 @@ export default defineEventHandler(async (event) => {
   if (!post) return throwError(404);
 
   post = { ...post, ...body };
-
+  await waitSeconds(1);
   return serverResponse(200, "Post updated successfully", [post]);
 });
