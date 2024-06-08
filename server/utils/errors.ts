@@ -1,12 +1,12 @@
-import { ErrorCodeLibrary } from "~/types/common.interfaces";
+import type { HttpStatus } from "~/types";
 
 export const throwError = (errorCode: number, message: string = "") => {
-  const error = { ...errorCodeLibrary[errorCode] };
+  const error = { ...httpStatus[errorCode] };
   if (message) error.message = message;
   throw createError(error);
 };
 
-export const errorCodeLibrary: ErrorCodeLibrary = {
+export const httpStatus: HttpStatus = {
   200: {
     statusCode: 200,
     statusMessage: "OK",
