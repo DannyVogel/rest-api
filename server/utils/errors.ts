@@ -9,50 +9,50 @@ export const throwError = (errorCode: number, message: string = "") => {
 export const errorCodeLibrary: ErrorCodeLibrary = {
   200: {
     statusCode: 200,
-    message: "All good",
+    statusMessage: "OK",
   },
   201: {
     statusCode: 201,
-    message: "Welcome to Creation",
+    statusMessage: "Created",
   },
   202: {
     statusCode: 202,
-    message: "Acceptable...",
+    statusMessage: "Accepted",
   },
   204: {
     statusCode: 204,
-    message: "Got nothing for you",
+    statusMessage: "No Content",
   },
   400: {
     statusCode: 400,
-    message: "Because you're bad at requesting",
+    statusMessage: "Bad Request",
   },
   401: {
     statusCode: 401,
-    message: "Uh uh, you don't belong here",
+    statusMessage: "Unauthorized",
   },
   403: {
     statusCode: 403,
-    message: "Definitely not allowed here",
+    statusMessage: "Forbidden",
   },
   404: {
     statusCode: 404,
-    message: "Nothing to see here",
+    statusMessage: "Not Found",
   },
   409: {
     statusCode: 409,
-    message: "Conflict",
+    statusMessage: "Conflict",
   },
   429: {
     statusCode: 429,
-    message: "Too many requests",
+    statusMessage: "Too Many Requests",
   },
   500: {
     statusCode: 500,
-    message: "Everything is broken",
+    statusMessage: "Internal Server Error",
   },
   503: {
     statusCode: 503,
-    message: "Service Unavailable",
+    statusMessage: "Service Unavailable",
   },
 };

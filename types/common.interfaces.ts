@@ -1,6 +1,7 @@
 export interface Response {
   statusCode: number;
-  message: string;
+  statusMessage: string;
+  message?: string;
   payload?: null | any[] | object;
 }
 
