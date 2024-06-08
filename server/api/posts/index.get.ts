@@ -1,25 +1,15 @@
-import type { Response, Post } from "~/types/common.interfaces";
+import type { Response, Post } from "~/types";
 
 export default defineEventHandler(async (event): Promise<Response> => {
-  const response = {} as Response;
   let data;
   try {
     data = (await storage.getItem("posts.json")) as Post[];
   } catch (error) {
-    throw createError({
-      statusCode: 500,
-      statusMessage: "Internal Server Error",
-    });
+    throw throwError(500, "Something went wrong");
   }
   if (!data) {
-    throw createError({
-      statusCode: 404,
-      statusMessage: "No posts found",
-    });
+    throw throwError(404, "No posts found");
   }
-  response.statusCode = 200;
-  response.message = "Got all posts";
-  response.payload = data;
   await waitSeconds(1);
-  return response;
+  return serverResponse(200, "Got all posts", data);
 });

@@ -9,9 +9,9 @@ export default defineEventHandler(async (event) => {
   try {
     posts = (await storage.getItem("posts.json")) as Post[];
   } catch (error) {
-    return throwError(500);
+    return throwError(500, "Something went wrong");
   }
-  if (!posts) return throwError(404);
+  if (!posts) return throwError(404, "No posts found");
 
   const post = posts.find((post) => post.post_id === id);
   if (!post) return throwError(404, `No post found with id: ${id}`);
