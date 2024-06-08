@@ -1,12 +1,11 @@
 export const serverResponse = (
   statusCode: number,
-  statusMessage: string,
   message?: string,
   payload?: any[] | object | null
 ) => {
   return {
     statusCode,
-    statusMessage,
+    statusMessage: httpStatus[statusCode].statusMessage,
     message,
     payload,
   };
