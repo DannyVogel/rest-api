@@ -1,6 +1,6 @@
 <script lang="ts" setup></script>
 
 <template>
-  <ErrorsGetById />
+  <ErrorsGetByStatusCode />
   <UDivider />
 </template>
