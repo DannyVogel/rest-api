@@ -5,8 +5,12 @@ export interface Response {
   payload?: null | any[] | object;
 }
 
-export interface ErrorCodeLibrary {
-  [key: number]: Response;
+export interface HttpStatus {
+  [key: number]: {
+    statusCode: number;
+    statusMessage: string;
+    message?: string;
+  };
 }
 
 export interface Post {
