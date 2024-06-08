@@ -13,6 +13,6 @@ defineProps({
       name="i-heroicons-exclamation-triangle"
       class="text-orange-500 mt-1.5 sm:mt-1 w-8"
     />
-    <p class="text-white">{{ message }}</p>
+    <p class="text-black dark:text-white">{{ message }}</p>
   </div>
 </template>
