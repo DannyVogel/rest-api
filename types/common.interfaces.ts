@@ -9,6 +9,7 @@ export interface HttpStatus {
   [key: number]: {
     statusCode: number;
     statusMessage: string;
+    description: string;
     message?: string;
   };
 }
