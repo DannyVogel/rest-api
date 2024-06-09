@@ -55,11 +55,17 @@ const getErrorsList = async () => {
         </p>
       </div>
       <UTable :rows="errorsList" class="overflow-y-scroll max-h-64 max-w-full">
-        <template #title-data="{ row }">
-          <p class="max-w-72">{{ row.title }}</p>
+        <template #statusCode-header="{ row }">
+          <p class="max-w-74 text-nowrap">Status Code</p>
         </template>
-        <template #body-data="{ row }">
-          <p class="max-w-72">{{ row.body }}</p>
+        <template #statusMessage-header="{ row }">
+          <p class="max-w-74 text-nowrap">Status Message</p>
+        </template>
+        <template #statusCode-data="{ row }">
+          <p class="max-w-72 font-bold text-red-500">{{ row.statusCode }}</p>
+        </template>
+        <template #statusMessage-data="{ row }">
+          <p class="max-w-72 font-bold">{{ row.statusMessage }}</p>
         </template>
         <template #empty-state>
           <div class="flex items-center justify-center h-60">
