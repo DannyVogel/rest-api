@@ -1,6 +1,10 @@
 <script lang="ts" setup></script>
 
 <template>
-  <ErrorsGetByStatusCode />
-  <UDivider />
+  <div class="flex flex-col items-start gap-10">
+    <ErrorsGetList />
+    <UDivider />
+    <ErrorsGetByStatusCode />
+    <UDivider />
+  </div>
 </template>
