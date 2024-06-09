@@ -40,7 +40,7 @@ const getErrorsList = async () => {
 </script>
 
 <template>
-  <div class="w-full flex flex-col items-start gap-4">
+  <div class="w-full flex flex-col items-start gap-4 scroll-mt-14">
     <APIBlock :title="title" :code-input="code" :code-output="output" />
     <p class="font-bold">Live Data Example:</p>
     <UCard class="w-full overflow-x-scroll">
