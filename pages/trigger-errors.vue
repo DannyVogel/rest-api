@@ -6,5 +6,7 @@
     <UDivider />
     <ErrorsGetByStatusCode />
     <UDivider />
+    <ErrorsGetRandom />
+    <UDivider />
   </div>
 </template>
