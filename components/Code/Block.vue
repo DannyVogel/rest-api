@@ -21,9 +21,7 @@ const copyToClipboard = () => {
 
 <template>
   <div class="w-full relative">
-    <UCard
-      class="w-full border border-primary bg-white dark:bg-[#0d1117] overflow-x-scroll"
-    >
+    <UCard class="w-full border border-primary bg-[#292D3E] overflow-x-scroll">
       <div v-html="highlightedJS" />
       <UTooltip
         text="Copy to clipboard"

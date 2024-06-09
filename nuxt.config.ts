@@ -11,10 +11,10 @@ export default defineNuxtConfig({
     supabaseKey: "",
   },
   shiki: {
-    bundledThemes: ["github-dark-default", "github-light-default"],
+    bundledThemes: ["material-theme-palenight"],
     defaultTheme: {
-      dark: "github-dark-default",
-      light: "github-light-default",
+      dark: "material-theme-palenight",
+      light: "material-theme-palenight",
     },
     defaultLang: "typescript",
   },
