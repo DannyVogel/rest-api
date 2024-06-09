@@ -3,9 +3,17 @@ const list = ref(null);
 const code = ref(null);
 const random = ref(null);
 
-const listIsVisible = useElementVisibility(list);
-const codeIsVisible = useElementVisibility(code);
-const randomIsVisible = useElementVisibility(random);
+const visibleSection = ref("");
+
+const listIsVisible = useElementVisibility(list, { threshold: 0.5 });
+const codeIsVisible = useElementVisibility(code, { threshold: 0.5 });
+const randomIsVisible = useElementVisibility(random, { threshold: 0.5 });
+
+watchEffect(() => {
+  if (listIsVisible.value) visibleSection.value = "list";
+  if (codeIsVisible.value) visibleSection.value = "code";
+  if (randomIsVisible.value) visibleSection.value = "random";
+});
 </script>
 
 <template>
@@ -18,25 +26,35 @@ const randomIsVisible = useElementVisibility(random);
       <ErrorsGetRandom id="random" ref="random" />
       <UDivider />
     </div>
-    <div class="md:col-span-3 justify-self-end sticky top-12 min-h-fit h-fit">
-      <h3 class="font-bold">Table of Contents</h3>
-      <ul class="mt-4">
-        <li>
-          <a href="#list" :class="{ 'text-primary': listIsVisible }"
-            >Get List of Errors</a
-          >
-        </li>
-        <li>
-          <a href="#code" :class="{ 'text-primary': codeIsVisible }"
-            >Get By Status Code
-          </a>
-        </li>
-        <li>
-          <a href="#random" :class="{ 'text-primary': randomIsVisible }"
-            >Get Random Error</a
-          >
-        </li>
-      </ul>
+    <div
+      class="hidden md:block md:col-span-3 justify-self-end sticky top-12 min-h-fit h-fit"
+    >
+      <div class="pl-4 border-l border-gray-600">
+        <h3 class="font-bold">Table of Contents</h3>
+        <ul class="mt-4 space-y-2">
+          <li>
+            <a
+              href="#list"
+              :class="{ 'text-primary': visibleSection === 'list' }"
+              >Get List of Errors</a
+            >
+          </li>
+          <li>
+            <a
+              href="#code"
+              :class="{ 'text-primary': visibleSection === 'code' }"
+              >Get By Status Code
+            </a>
+          </li>
+          <li>
+            <a
+              href="#random"
+              :class="{ 'text-primary': visibleSection === 'random' }"
+              >Get Random Error</a
+            >
+          </li>
+        </ul>
+      </div>
     </div>
   </div>
 </template>

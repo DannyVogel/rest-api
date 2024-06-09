@@ -5,11 +5,21 @@ const create = ref(null);
 const update = ref(null);
 const del = ref(null);
 
-const getIsVisible = useElementVisibility(get);
-const byIdIsVisible = useElementVisibility(byId);
-const createIsVisible = useElementVisibility(create);
-const updateIsVisible = useElementVisibility(update);
-const delIsVisible = useElementVisibility(del);
+const visibleSection = ref("");
+
+const getIsVisible = useElementVisibility(get, { threshold: 0.5 });
+const byIdIsVisible = useElementVisibility(byId, { threshold: 0.5 });
+const createIsVisible = useElementVisibility(create, { threshold: 0.5 });
+const updateIsVisible = useElementVisibility(update, { threshold: 0.5 });
+const delIsVisible = useElementVisibility(del, { threshold: 0.5 });
+
+watchEffect(() => {
+  if (getIsVisible.value) visibleSection.value = "get";
+  if (byIdIsVisible.value) visibleSection.value = "byId";
+  if (createIsVisible.value) visibleSection.value = "create";
+  if (updateIsVisible.value) visibleSection.value = "update";
+  if (delIsVisible.value) visibleSection.value = "del";
+});
 </script>
 
 <template>
@@ -23,38 +33,48 @@ const delIsVisible = useElementVisibility(del);
       <UDivider />
       <PostsUpdate id="update" ref="update" />
       <UDivider />
-      <PostsDelete id="delete" ref="del" />
+      <PostsDelete id="del" ref="del" />
       <UDivider />
     </div>
-    <div class="md:col-span-3 justify-self-end sticky top-12 min-h-fit h-fit">
-      <h3 class="font-bold">Table of Contents</h3>
-      <ul class="mt-4">
-        <li>
-          <a href="#get" :class="{ 'text-primary': getIsVisible }"
-            >Get All Posts</a
-          >
-        </li>
-        <li>
-          <a href="#byId" :class="{ 'text-primary': byIdIsVisible }"
-            >Get Post By ID</a
-          >
-        </li>
-        <li>
-          <a href="#create" :class="{ 'text-primary': createIsVisible }"
-            >Create Post</a
-          >
-        </li>
-        <li>
-          <a href="#update" :class="{ 'text-primary': updateIsVisible }"
-            >Update Post</a
-          >
-        </li>
-        <li>
-          <a href="#delete" :class="{ 'text-primary': delIsVisible }"
-            >Delete Post</a
-          >
-        </li>
-      </ul>
+    <div
+      class="hidden md:block md:col-span-3 justify-self-end sticky top-12 min-h-fit h-fit"
+    >
+      <div class="pl-4 border-l border-gray-600">
+        <h3 class="font-bold">Table of Contents</h3>
+        <ul class="mt-4 space-y-2">
+          <li>
+            <a href="#get" :class="{ 'text-primary': visibleSection === 'get' }"
+              >Get All Posts</a
+            >
+          </li>
+          <li>
+            <a
+              href="#byId"
+              :class="{ 'text-primary': visibleSection === 'byId' }"
+              >Get Post By ID</a
+            >
+          </li>
+          <li>
+            <a
+              href="#create"
+              :class="{ 'text-primary': visibleSection === 'create' }"
+              >Create Post</a
+            >
+          </li>
+          <li>
+            <a
+              href="#update"
+              :class="{ 'text-primary': visibleSection === 'update' }"
+              >Update Post</a
+            >
+          </li>
+          <li>
+            <a href="#del" :class="{ 'text-primary': visibleSection === 'del' }"
+              >Delete Post</a
+            >
+          </li>
+        </ul>
+      </div>
     </div>
   </div>
 </template>
