@@ -22,7 +22,6 @@ const getErrorById = async (errorCode: number) => {
   fetch(`/api/errors/${errorCode}`)
     .then((response) => response.json())
     .then((data) => {
-      // delete data.stack
       error.value = {
         url: data.url,
         statusCode: data.statusCode,
@@ -38,7 +37,7 @@ const getErrorById = async (errorCode: number) => {
   <div class="w-full flex flex-col items-start gap-4">
     <APIBlock :title="title" :code-input="code" :code-output="output" />
     <p class="font-bold">Live Data Example:</p>
-    <UCard class="w-full">
+    <UCard class="w-full min-h-60">
       <div v-if="!error" class="flex gap-4">
         <USelect v-model="errorCode" :options="errorCodes" color="gray" />
         <UButton
