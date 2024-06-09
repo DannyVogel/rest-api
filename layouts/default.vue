@@ -23,7 +23,7 @@ const linksMain = [
   },
   {
     label: "User Posts",
-    icon: "i-heroicons-document-text",
+    icon: "i-heroicons-user",
     to: "",
     click: () => (isOpen.value = false),
   },
