@@ -1,4 +1,6 @@
 <script lang="ts" setup>
+useHeadSafe(() => ({ title: "Posts" }));
+
 const get = ref(null);
 const byId = ref(null);
 const create = ref(null);

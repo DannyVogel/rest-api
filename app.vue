@@ -1,3 +1,17 @@
+<script setup lang="ts">
+useHeadSafe(() => ({
+  titleTemplate: (title?: string) =>
+    `${title ? `${title} | ` : ""}RESTful Test`,
+  meta: [
+    {
+      name: "description",
+      content:
+        "Mock API service for developers. Perform CRUD operations on posts or check your apps' error handling. Ideal for testing and enhancing your apps.",
+    },
+  ],
+}));
+</script>
+
 <template>
   <NuxtLayout>
     <NuxtPage />

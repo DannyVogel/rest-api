@@ -1,4 +1,5 @@
 <script lang="ts" setup>
+useHeadSafe(() => ({ title: "Errors" }));
 const list = ref(null);
 const code = ref(null);
 const random = ref(null);
