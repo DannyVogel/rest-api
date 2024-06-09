@@ -47,7 +47,7 @@ const getRandomError = async () => {
           @click="error = null"
           class="text-red-500 mt-4 cursor-pointer hover:text-red-700"
         >
-          Try another status code
+          Try another error status code
         </p>
       </div>
     </UCard>
