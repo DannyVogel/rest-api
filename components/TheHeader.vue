@@ -12,7 +12,7 @@ const linksMain = [
   {
     label: "Trigger Errors",
     icon: "i-heroicons-shield-exclamation",
-    to: "/trigger-errors",
+    to: "/errors",
     click: () => (isOpen.value = false),
   },
   {
@@ -43,12 +43,12 @@ const linksFooter = [
 
 <template>
   <div
-    class="flex justify-between md:justify-normal px-4 items-center gap-4 max-w-screen-lg mx-auto h-12"
+    class="sticky top-0 flex justify-between md:justify-normal px-4 items-center gap-4 max-w-screen-lg mx-auto h-12 z-50 bg-background/75 backdrop-blur"
   >
     <TheLogo />
     <UHorizontalNavigation
       :links="[linksMain, linksFooter]"
-      class="hidden md:flex"
+      class="hidden md:flex mt-1"
     />
     <div class="md:hidden">
       <UButton
