@@ -13,8 +13,8 @@ const delIsVisible = useElementVisibility(del);
 </script>
 
 <template>
-  <div class="relative lg:grid lg:grid-cols-12 lg:gap-10">
-    <div class="flex flex-col items-start gap-10 lg:col-span-10">
+  <div class="relative md:grid md:grid-cols-12 md:gap-8">
+    <div class="flex flex-col items-start gap-10 md:col-span-9">
       <PostsGet id="get" ref="get" />
       <UDivider />
       <PostsGetById id="byId" ref="byId" />
@@ -26,7 +26,7 @@ const delIsVisible = useElementVisibility(del);
       <PostsDelete id="delete" ref="del" />
       <UDivider />
     </div>
-    <div class="lg:col-span-2 sticky top-12 min-h-fit h-fit">
+    <div class="md:col-span-3 justify-self-end sticky top-12 min-h-fit h-fit">
       <h3 class="font-bold">Table of Contents</h3>
       <ul class="mt-4">
         <li>
