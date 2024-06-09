@@ -5,7 +5,7 @@ export default defineNuxtConfig({
   tailwindcss: {
     viewer: false,
   },
-  modules: ["@nuxt/ui", "nuxt-shiki"],
+  modules: ["@nuxt/ui", "nuxt-shiki", "@vueuse/nuxt"],
   runtimeConfig: {
     supabaseUrl: "",
     supabaseKey: "",
@@ -20,5 +20,8 @@ export default defineNuxtConfig({
   },
   ui: {
     icons: ["mdi", "heroicons", "dashicons"],
+  },
+  app: {
+    pageTransition: { name: "page", mode: "out-in" },
   },
 });
