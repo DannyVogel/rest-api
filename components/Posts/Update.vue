@@ -56,7 +56,7 @@ const createPost = async (id: number) => {
 </script>
 
 <template>
-  <div class="w-full flex flex-col items-start gap-4">
+  <div class="w-full flex flex-col items-start gap-4 scroll-mt-14">
     <APIBlock :title="title" :code-input="code" :code-output="output" />
     <Warn
       message="The updated post will not actually be saved but the response will pretend it did."
