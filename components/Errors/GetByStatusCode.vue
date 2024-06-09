@@ -19,7 +19,7 @@ const isLoading = ref<boolean>(false);
 const getErrorById = async (errorCode: number) => {
   error.value = null;
   isLoading.value = true;
-  fetch(`/api/errors/${errorCode}`)
+  await fetch(`/api/errors/${errorCode}`)
     .then((response) => response.json())
     .then((data) => {
       error.value = {

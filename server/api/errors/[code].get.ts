@@ -6,5 +6,6 @@ export default defineEventHandler(async (event): Promise<Response> => {
   if (!isCodeInLibrary) {
     throw createError({ statusCode: code });
   }
+  await waitSeconds(1);
   return throwError(code);
 });

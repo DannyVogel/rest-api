@@ -17,7 +17,7 @@ const isLoading = ref<boolean>(false);
 const getRandomError = async () => {
   error.value = null;
   isLoading.value = true;
-  fetch("/api/errors/random")
+  await fetch("/api/errors/random")
     .then((response) => response.json())
     .then((data) => {
       error.value = {
