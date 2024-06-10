@@ -1,25 +1,40 @@
 <script lang="ts" setup>
+const { gtag } = useGtag();
 const isOpen = ref(false);
+
 const sendToGitHub = async () => {
   isOpen.value = false;
+  gtag("event", "click", {
+    event_category: "navigation",
+    event_label: "GitHub",
+  });
   await navigateTo("https://github.com/DannyVogel", {
     open: {
       target: "_blank",
     },
   });
 };
+
+const handleLinkClick = (link: string) => {
+  gtag("event", "click", {
+    event_category: "navigation",
+    event_label: link,
+  });
+  isOpen.value = false;
+};
+
 const linksMain = [
   {
     label: "Trigger Errors",
     icon: "i-heroicons-shield-exclamation",
     to: "/errors",
-    click: () => (isOpen.value = false),
+    click: handleLinkClick("Trigger Errors"),
   },
   {
     label: "Placeholder Posts",
     icon: "i-heroicons-document-text",
     to: "/posts",
-    click: () => (isOpen.value = false),
+    click: handleLinkClick("Placeholder Posts"),
   },
   // {
   //   label: "User Posts",

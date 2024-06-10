@@ -1,7 +1,7 @@
 <script lang="ts" setup>
 import { version } from "~/package.json";
 
-defineEmits(["close"]);
+const emit = defineEmits(["close"]);
 defineProps({
   showX: {
     type: Boolean,
@@ -9,12 +9,21 @@ defineProps({
     default: false,
   },
 });
+const { gtag } = useGtag();
+
+const handleLinkClick = (link: string) => {
+  gtag("event", "click", {
+    event_category: "navigation",
+    event_label: link,
+  });
+  emit("close");
+};
 </script>
 
 <template>
   <NuxtLink
     to="/"
-    @click="$emit('close')"
+    @click="handleLinkClick('Home')"
     class="flex justify-between items-baseline"
   >
     <div class="flex items-baseline gap-2">
