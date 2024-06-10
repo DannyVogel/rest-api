@@ -5,7 +5,7 @@ export default defineNuxtConfig({
   tailwindcss: {
     viewer: false,
   },
-  modules: ["@nuxt/ui", "nuxt-shiki", "@vueuse/nuxt"],
+  modules: ["@nuxt/ui", "nuxt-shiki", "@vueuse/nuxt", "nuxt-gtag"],
   runtimeConfig: {
     supabaseUrl: "",
     supabaseKey: "",
@@ -23,5 +23,8 @@ export default defineNuxtConfig({
   },
   app: {
     pageTransition: { name: "page", mode: "out-in" },
+  },
+  gtag: {
+    id: "G-9FYJ9MEVED",
   },
 });

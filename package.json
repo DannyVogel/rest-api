@@ -1,6 +1,6 @@
 {
   "name": "nuxt-app",
-  "version": "0.4.1",
+  "version": "0.4.2",
   "private": true,
   "type": "module",
   "scripts": {
@@ -19,6 +19,7 @@
     "@vueuse/nuxt": "^10.10.0",
     "joi": "^17.13.1",
     "nuxt": "^3.11.2",
+    "nuxt-gtag": "^2.0.6",
     "nuxt-shiki": "^0.3.0",
     "supabase": "^1.172.2",
     "uuid": "^9.0.1",
