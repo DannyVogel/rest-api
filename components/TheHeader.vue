@@ -4,7 +4,7 @@ const isOpen = ref(false);
 
 const sendToGitHub = async () => {
   isOpen.value = false;
-  gtag("event", "click", {
+  gtag("event", "nav_github", {
     event_category: "navigation",
     event_label: "GitHub",
   });
@@ -17,7 +17,7 @@ const sendToGitHub = async () => {
 
 const handleLinkClick = (link: string) => {
   isOpen.value = false;
-  gtag("event", "click", {
+  gtag("event", `nav_${link}`, {
     event_category: "navigation",
     event_label: link,
   });
@@ -28,13 +28,13 @@ const linksMain = [
     label: "Trigger Errors",
     icon: "i-heroicons-shield-exclamation",
     to: "/errors",
-    click: () => handleLinkClick("Trigger Errors"),
+    click: () => handleLinkClick("trigger_errors"),
   },
   {
     label: "Placeholder Posts",
     icon: "i-heroicons-document-text",
     to: "/posts",
-    click: () => handleLinkClick("Placeholder Posts"),
+    click: () => handleLinkClick("placeholder_posts"),
   },
   // {
   //   label: "User Posts",
