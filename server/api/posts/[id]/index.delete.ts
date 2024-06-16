@@ -17,5 +17,5 @@ export default defineEventHandler(async (event) => {
   if (!post) return throwError(404, `No post found with id: ${id}`);
 
   await waitSeconds(1);
-  return serverResponse(200, "Post deleted successfully", null);
+  return serverResponse(200, `Post with id ${id} deleted successfully`, null);
 });
