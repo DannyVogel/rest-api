@@ -16,11 +16,11 @@ const sendToGitHub = async () => {
 };
 
 const handleLinkClick = (link: string) => {
+  isOpen.value = false;
   gtag("event", "click", {
     event_category: "navigation",
     event_label: link,
   });
-  isOpen.value = false;
 };
 
 const linksMain = [
@@ -28,13 +28,13 @@ const linksMain = [
     label: "Trigger Errors",
     icon: "i-heroicons-shield-exclamation",
     to: "/errors",
-    click: handleLinkClick("Trigger Errors"),
+    click: () => handleLinkClick("Trigger Errors"),
   },
   {
     label: "Placeholder Posts",
     icon: "i-heroicons-document-text",
     to: "/posts",
-    click: handleLinkClick("Placeholder Posts"),
+    click: () => handleLinkClick("Placeholder Posts"),
   },
   // {
   //   label: "User Posts",
